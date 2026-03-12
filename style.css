@@ -244,8 +244,8 @@ section {
   /* Imagen de fondo proporcionada por el usuario (foto1.jpeg) */
   background-image: url('foto1.jpeg');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Parallax effect */
+  background-position: center top; /* Centrado en la parte superior para asegurar que se vea la cara en móviles */
+  background-attachment: scroll; /* Cambiado de fixed a scroll para compatibilidad móvil */
 }
 
 .hero-overlay {
