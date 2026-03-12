@@ -150,15 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 whatsappMessage += `\nMensaje: _${message}_`;
             }
 
-            const phoneNumber = "528115340356"; // Número proporcionado por el usuario
+            const phoneNumber = "528115340356";
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
-            // Abrir WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Opcional: Mostrar confirmación visual en el sitio
-            alert('¡Gracias! Serás redirigido a WhatsApp para enviar tu confirmación.');
+            // Redirigir a WhatsApp (usar location.href para evitar bloqueadores de popups)
+            window.location.href = whatsappUrl;
         });
     }
 });
