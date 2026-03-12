@@ -248,6 +248,15 @@ section {
   background-attachment: scroll; /* Cambiado de fixed a scroll para compatibilidad móvil */
 }
 
+/* Optimización para móviles usando foto2.jpeg */
+@media (max-width: 768px) {
+  .hero-section {
+    background-image: url('foto2.jpeg');
+    background-position: center 20%; /* Ajuste fino para la cara en la nueva imagen */
+    background-attachment: scroll;
+  }
+}
+
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
