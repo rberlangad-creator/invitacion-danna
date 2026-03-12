@@ -126,4 +126,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { once: true });
     }
+
+    // WhatsApp RSVP Logic
+    const rsvpForm = document.getElementById('rsvp-form');
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('rsvp-name').value;
+            const status = document.getElementById('rsvp-status').value;
+            const guests = document.getElementById('rsvp-guests').value || '0';
+            const message = document.getElementById('rsvp-message').value;
+
+            const attendanceText = status === 'si' ? 'Confirmo mi asistencia ✅' : 'Lamentablemente no podré asistir ❌';
+            
+            let whatsappMessage = `¡Hola! Soy *${name}*.\n\n${attendanceText}\n`;
+            
+            if (status === 'si') {
+                whatsappMessage += `Iré con *${guests}* acompañante(s).\n`;
+            }
+            
+            if (message) {
+                whatsappMessage += `\nMensaje: _${message}_`;
+            }
+
+            const phoneNumber = "528115340356"; // Número proporcionado por el usuario
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            // Abrir WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Opcional: Mostrar confirmación visual en el sitio
+            alert('¡Gracias! Serás redirigido a WhatsApp para enviar tu confirmación.');
+        });
+    }
 });

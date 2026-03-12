@@ -177,15 +177,15 @@
             <p class="section-subtitle">Nos encantaría que nos acompañes</p>
             <div class="divider"></div>
             
-            <form class="rsvp-form" onsubmit="event.preventDefault(); alert('¡Gracias por confirmar tu asistencia!');">
-                <input type="text" placeholder="Nombre y Apellido" required>
-                <select required>
+            <form class="rsvp-form" id="rsvp-form">
+                <input type="text" id="rsvp-name" placeholder="Nombre y Apellido" required>
+                <select id="rsvp-status" required>
                     <option value="" disabled selected>Asistencia</option>
                     <option value="si">Sí asistiré</option>
                     <option value="no">No podré asistir</option>
                 </select>
-                <input type="number" placeholder="Número de acompañantes" min="0" max="5">
-                <textarea placeholder="Deja un mensaje o anécdota para mi álbum digital" rows="4"></textarea>
+                <input type="number" id="rsvp-guests" placeholder="Número de acompañantes" min="0" max="5">
+                <textarea id="rsvp-message" placeholder="Deja un mensaje o anécdota para mi álbum digital" rows="4"></textarea>
                 <button type="submit" class="btn-primary">Confirmar</button>
             </form>
         </div>
