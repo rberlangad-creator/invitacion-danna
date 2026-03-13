@@ -129,10 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // WhatsApp RSVP Logic
     const rsvpBtn = document.getElementById('rsvp-whatsapp-btn');
+    const guestNameInput = document.getElementById('guest-name');
+    
     if (rsvpBtn) {
         rsvpBtn.addEventListener('click', () => {
+            const guestName = guestNameInput.value.trim();
+            
+            if (guestName === "") {
+                alert("Por favor, escribe tu nombre para confirmar.");
+                guestNameInput.focus();
+                return;
+            }
+
             const phoneNumber = "528116024359";
-            const whatsappMessage = "¡Hola! Confirmo mi pase individual para tus XV años. ✨";
+            const whatsappMessage = `¡Hola! Soy ${guestName}. Confirmo mi pase individual para tus XV años. ✨`;
             const encodedMessage = encodeURIComponent(whatsappMessage);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
