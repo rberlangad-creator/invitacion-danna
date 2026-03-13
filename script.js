@@ -128,33 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // WhatsApp RSVP Logic
-    const rsvpForm = document.getElementById('rsvp-form');
-    if (rsvpForm) {
-        rsvpForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('rsvp-name').value;
-            const status = document.getElementById('rsvp-status').value;
-            const guests = document.getElementById('rsvp-guests').value || '0';
-            const message = document.getElementById('rsvp-message').value;
-
-            const attendanceText = status === 'si' ? 'Confirmo mi asistencia ✅' : 'Lamentablemente no podré asistir ❌';
-            
-            let whatsappMessage = `¡Hola! Soy *${name}*.\n\n${attendanceText}\n`;
-            
-            if (status === 'si') {
-                whatsappMessage += `Iré con *${guests}* acompañante(s).\n`;
-            }
-            
-            if (message) {
-                whatsappMessage += `\nMensaje: _${message}_`;
-            }
-
-            const phoneNumber = "528115340356";
+    const rsvpBtn = document.getElementById('rsvp-whatsapp-btn');
+    if (rsvpBtn) {
+        rsvpBtn.addEventListener('click', () => {
+            const phoneNumber = "528116024359";
+            const whatsappMessage = "¡Hola! Confirmo mi pase individual para tus XV años. ✨";
             const encodedMessage = encodeURIComponent(whatsappMessage);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
-            // Redirigir a WhatsApp (usar location.href para evitar bloqueadores de popups)
+            // Redirigir a WhatsApp
             window.location.href = whatsappUrl;
         });
     }
