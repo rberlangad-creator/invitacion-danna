@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const phoneNumber = "528116024359";
-            const whatsappMessage = `¡Hola! Soy ${guestName}. Confirmo mi pase individual para tus XV años. ✨`;
+            const whatsappMessage = `Hola soy ${guestName} y confirmo mi asistencia a tus XV`;
             const encodedMessage = encodeURIComponent(whatsappMessage);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
